@@ -16,11 +16,15 @@ RUN pnpm install --frozen-lockfile
 # Copy source code
 COPY . .
 
+# ---------------------------------------------------
+
 # Build stage
 FROM base AS builder
 
 # Build the application
 RUN pnpm build
+
+# ---------------------------------------------------
 
 # Production stage
 FROM node:20-alpine AS runner
@@ -32,10 +36,10 @@ WORKDIR /app
 
 # Create non-root user
 RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+RUN adduser --system --uid 1001 calendar-app
 
 # Copy built application
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=calendar-app:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
