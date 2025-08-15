@@ -1,5 +1,4 @@
 # Calendar App
-
 > A simple calendar application built with React, Next.js, and Tailwind CSS.
 
 This is just a demo sample calendar app to work on deployment and containerization skills.
