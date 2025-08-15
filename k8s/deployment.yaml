@@ -18,7 +18,7 @@ spec:
         - name: calendar-app
           image: ghcr.io/sayjeyhi/calendar-app:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 3000
 
           livenessProbe:
             httpGet:

@@ -23,5 +23,5 @@ spec:
               service:
                 name: calendar-app-service
                 port:
-                  number: 8080
+                  number: 3000
 
