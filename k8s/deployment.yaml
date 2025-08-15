@@ -15,23 +15,22 @@ spec:
         app: calendar-app
     spec:
       containers:
-        - name: calendar-app
-          image: ghcr.io/sayjeyhi/calendar-app:latest
-          ports:
-            - containerPort: 3000
-
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 3000
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: 3000
-          resources:
-            limits:
-              cpu: '1000m'
-              memory: '1024Mi'
-            requests:
-              cpu: '500m'
-              memory: '500Mi'
+      - name: calendar-app
+        image: ghcr.io/sayjeyhi/calendar-app:latest
+        ports:
+        - containerPort: 3000
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+        resources:
+          limits:
+            cpu: '1000m'
+            memory: '1024Mi'
+          requests:
+            cpu: '500m'
+            memory: '500Mi'
